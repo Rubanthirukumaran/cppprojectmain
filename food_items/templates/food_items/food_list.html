@@ -1,0 +1,24 @@
+<!-- food_items/templates/food_items/food_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Food Items</title>
+</head>
+<body>
+    <h1>Food Items</h1>
+    <ul>
+    {% for food_item in food_items %}
+        <li>
+            <div>
+                <img src="{{ food_item.image.url }}" alt="{{ food_item.name }}" style="max-width: 100px;">
+            </div>
+            <div>
+                <p>Name: {{ food_item.name }}</p>
+                <p>Price: ${{ food_item.price }}</p>
+            </div>
+        </li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
