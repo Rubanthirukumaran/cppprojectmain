@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-qe^+tuhbk_mljtj_s5xqfxxo8_nn&@_trel^3zfo82l5m$o4pm
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["91430202b14340a1a8b4acb752c934c0.vfs.cloud9.us-east-1.amazonaws.com"]
 
 
 # Application definition
@@ -141,4 +141,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # settings.py
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+
+CSRF_TRUSTED_ORIGINS = ["https://91430202b14340a1a8b4acb752c934c0.vfs.cloud9.us-east-1.amazonaws.com"]
 

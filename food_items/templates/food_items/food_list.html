@@ -1,24 +1,168 @@
-<!-- food_items/templates/food_items/food_list.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Food Items</title>
+    <title>RS Fundraise</title>
+    <style>
+        /* Reset default margin and padding */
+        body, h1, h2, p, ul, li {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+            color: #333;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #0066cc;
+        }
+
+        .church-image {
+            max-width: 100%;
+            margin-bottom: 20px;
+            display: block;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #0066cc;
+        }
+
+        .section p {
+            margin-bottom: 20px;
+        }
+
+        .section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .section .bank-details p {
+            margin-bottom: 10px;
+        }
+
+        .address {
+            margin-top: 40px;
+            border-top: 1px solid #ccc;
+            padding-top: 20px;
+        }
+
+        .address p {
+            margin-bottom: 10px;
+        }
+
+        .church-website {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .church-website a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .church-website a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Add any custom CSS styles here */
+        .food-item {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        .food-item img {
+            max-width: 120px; /* Set the maximum width of the images */
+            margin-right: 20px;
+        }
+        .church-image {
+            max-width: 250px; /* Set the maximum width of the church image */
+            margin-bottom: 20px;
+        }
+
+    </style>
 </head>
 <body>
-    <h1>Food Items</h1>
-    <ul>
-    {% for food_item in food_items %}
-        <li>
-            <div>
-                <img src="{{ food_item.image.url }}" alt="{{ food_item.name }}" style="max-width: 100px;">
-            </div>
-            <div>
-                <p>Name: {{ food_item.name }}</p>
-                <p>Price: ${{ food_item.price }}</p>
-            </div>
-        </li>
-    {% endfor %}
-    </ul>
+    <div class="container">
+        <h1>RS Fundraise</h1>
+
+        <!-- Random image of a church -->
+        <img src="https://source.unsplash.com/featured/?church" alt="Church" class="church-image">
+
+        <!-- Content for fundraising donation with Bible thoughts -->
+        <div class="section">
+            <h2>Fundraising Donation</h2>
+            <p>Dear friends,</p>
+            <p>We are excited to announce that every Sunday, we will be hosting a food sale to raise funds for our church building construction project. This initiative allows us to come together as a community, enjoy delicious food, and contribute to a meaningful cause.</p>
+            <p>Your participation in the Sunday food sale not only provides you with tasty treats but also helps us take significant steps towards realizing our vision of a new church building. Together, we can make a difference!</p>
+            <p>Remember the words from the Bible, "<i>Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion, for God loves a cheerful giver</i>." - 2 Corinthians 9:7</p>
+            <p>Thank you for your continued support and generosity. May God bless you abundantly.</p>
+        </div>
+
+        <!-- Food items list -->
+        <div class="section">
+            <h2>Food Items</h2>
+            <ul>
+                {% for food_item in food_items %}
+                    <li class="food-item">
+                        <div>
+                            <img src="{{ food_item.image.url }}" alt="{{ food_item.name }}">
+                        </div>
+                        <div>
+                            <p>Name: {{ food_item.name }}</p>
+                            <p>Price: ${{ food_item.price }}</p>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+            
+            <p>Total Price: ${{ total_price }}</p>
+        </div>
+
+        <!-- Bank account details -->
+        <div class="section bank-details">
+            <h2>Bank Account Details</h2>
+            <p><strong>General Account Detail:</strong></p>
+            <p>Account Name: New Life Church</p>
+            <p>IBAN: IE91 AIBK 9320 7842 1490 48</p>
+            <p>A/C No: 421 490 48</p>
+            <br>
+            <p><strong>CHURCH BUILDING FUND ACCOUNT DETAIL:</strong></p>
+            <p>Account Name: New Life Church</p>
+            <p>IBAN: IE60 AIBK 9320 7842 1491 21</p>
+            <p>A/C No: 421 491 21</p>
+        </div>
+
+        <!-- Church address -->
+        <div class="section address">
+            <h2>Church Address</h2>
+            <p>1 Drumfinn Road</p>
+            <p>Dublin D10 CP46</p>
+            <p>County Dublin</p>
+        </div>
+
+        <!-- Church website link -->
+        <div class="church-website">
+            <p>For more information, please visit our website: <a href="http://www.nlcdublin.com">www.nlcdublin.com</a></p>
+        </div>
+    </div>
 </body>
 </html>
