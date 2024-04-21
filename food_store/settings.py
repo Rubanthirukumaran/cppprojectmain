@@ -27,9 +27,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-qe^+tuhbk_mljtj_s5xqfxxo8_nn&@_trel^3zfo82l5m$o4pm'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["91430202b14340a1a8b4acb752c934c0.vfs.cloud9.us-east-1.amazonaws.com"]
+# ALLOWED_HOSTS = ['127.0.0.1', 'localhost',"91430202b14340a1a8b4acb752c934c0.vfs.cloud9.us-east-1.amazonaws.com"]
+ALLOWED_HOSTS = ['*']
+
 
 
 # Application definition
@@ -41,7 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'food_items'
+    'food_items',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -78,12 +81,12 @@ WSGI_APPLICATION = 'food_store.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation
@@ -143,5 +146,49 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
-CSRF_TRUSTED_ORIGINS = ["https://91430202b14340a1a8b4acb752c934c0.vfs.cloud9.us-east-1.amazonaws.com"]
+CSRF_TRUSTED_ORIGINS = ["https://91430202b14340a1a8b4acb752c934c0.vfs.cloud9.us-east-1.amazonaws.com","http://food-store-dev.us-east-2.elasticbeanstalk.com/"]
 
+
+# AWS Credentials
+
+AWS_ACCESS_KEY_ID = "AKIA55ZR7WNQHNJDMQSO"
+AWS_SECRET_ACCESS_KEY = "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"
+
+
+#S3 cONFIGURATION SETTING
+
+AWS_STORAGE_BUCKET_NAME = 'rubancpp-1'
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATIC_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+
+AWS_S3_FILE_OVERWRITE = False
+
+
+
+# RDS (Database) configuration settings:
+
+
+DATABASES = {
+
+    'default': {
+
+        'ENGINE': 'django.db.backends.postgresql',
+
+        'NAME': 'demo_1',
+
+        'USER': 'Ruban',
+
+        'PASSWORD': 'Shruthi123',
+
+        'HOST': 'database-1.cnmqawmyciqw.us-east-2.rds.amazonaws.com',
+
+        'PORT': '5432',
+
+
+    }
+
+}
