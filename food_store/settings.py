@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-qe^+tuhbk_mljtj_s5xqfxxo8_nn&@_trel^3zfo82l5m$o4pm'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # ALLOWED_HOSTS = ['127.0.0.1', 'localhost',"91430202b14340a1a8b4acb752c934c0.vfs.cloud9.us-east-1.amazonaws.com"]
 ALLOWED_HOSTS = ['*']
@@ -146,7 +146,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
-CSRF_TRUSTED_ORIGINS = ["https://91430202b14340a1a8b4acb752c934c0.vfs.cloud9.us-east-1.amazonaws.com","http://food-store-dev.us-east-2.elasticbeanstalk.com/"]
+CSRF_TRUSTED_ORIGINS = ["https://91430202b14340a1a8b4acb752c934c0.vfs.cloud9.us-east-1.amazonaws.com","http://food-store-dev.us-east-2.elasticbeanstalk.com/","https://4f738655d1cb407584941df1a6408f43.vfs.cloud9.eu-west-2.amazonaws.com"]
 
 
 # AWS Credentials
